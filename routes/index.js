@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 const {
   postal_codes,
   products,
@@ -12,6 +13,11 @@ const {
   addProduct,
   getTotalAmount,
 } = require('../library/helperFunctions.js');
+
+/* GET home page. */
+router.get('/', function (req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 // Get distance from warehouse to delivery address
 router.get('/warehouse/distance', async (req, res) => {
